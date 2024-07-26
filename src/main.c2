@@ -1,0 +1,77 @@
+#include <litop>
+#include <out>
+#include <cstring>
+
+class example:
+	public u64 size;
+	public u32 revision;
+	public u64 members;
+	public u64 superclasses;
+	public u8 type;
+
+char* operator+(char* a, char* b);
+
+void fsRead(char* path);
+
+typecast char* its(u64 x):
+	char* nstr = UTHS(x);
+	return nstr;
+
+typecast char* its(u32 x):
+	(rdi) u64 x64;
+	char* nstr = UTHS(x64);
+	return nstr;
+
+typecast char* its(u16 x):
+	(rdi) u64 x64;
+	char* nstr = UTHS(x64);
+	return nstr;
+
+typecast char* its(u8 x):
+	(rdi) u64 x64;
+	char* nstr = UTHS(x64);
+	return nstr;
+
+SYMBOL-testFunc_c2 u64 testFunc():
+	return 4KiB;
+
+void extest():
+	throw 0x500;
+
+void main() {
+	example ex;
+	ex.size = 0x500;
+	ex.revision = 2;
+	ex.members = 18;
+	ex.superclasses = 0x18;
+	ex.type = 0x8E;
+	(r13) u64 i1 = 0x800;
+	(r14) u64 i2 = 0x0B0;
+	async (i1,i2) {
+		(r13) u64 o1 = i1+i2;
+		(r14) char* str = `Thread reporting for duty ${o1}.`;
+		out << str << endl;
+	}
+	try
+	{
+		u64 TI = 0x300;
+		char* HW = `Hello ${TI+(0x200+0x400)+testFunc()} world.`;
+		out << HW << endl;
+		//out << "ex: ";
+		//char* d = char*(ex);
+		//out << d << endl;
+	}
+	catch(u64 e)
+	{
+		char* HW = `exception u64: ${e}`;
+		out << HW << endl;
+	}
+	catch(u32 e)
+	{
+		char* HW = `exception u32: ${e}`;
+		out << HW << endl;
+	}
+	out << "end\n";
+}
+
+#include <out>

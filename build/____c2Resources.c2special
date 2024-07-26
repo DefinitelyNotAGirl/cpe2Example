@@ -1,0 +1,5 @@
+//e-40
+.data
+.global __cpe2_exceptionStackSize
+__cpe2_exceptionStackSize:
+	.quad 40

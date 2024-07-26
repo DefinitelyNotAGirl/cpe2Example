@@ -1,0 +1,20 @@
+// c2o
+// @syntax gas
+// @file build/main.c2resource
+
+.extern charP8_cpuVendor
+.data
+.section .rodata
+.align 8
+.global ____cpe2.exceptions.handler_.u64
+____cpe2.exceptions.handler_.u64:
+.quad 16
+.align 8
+.global ____cpe2.exceptions.handler_.u32
+____cpe2.exceptions.handler_.u32:
+.quad 32
+.global __cpe2_exceptionFrameSize
+__cpe2_exceptionFrameSize:
+	.quad 48
+.bss
+.text

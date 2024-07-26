@@ -1,0 +1,514 @@
+// c2o
+// @syntax gas
+// @file src/main.c2
+
+.extern charP8_cpuVendor
+.extern __fd_cout
+.extern __fd_out
+.extern __fd_cerr
+.extern __fd_err
+.extern format_num
+.extern format_dec
+.extern format_hex
+.extern format_bin
+.extern format_oct
+.extern stream_info
+.extern stream_error
+.extern stream_warning
+.data
+local.src_main.c2.anonymous446:
+	.byte 84
+	.byte 104
+	.byte 114
+	.byte 101
+	.byte 97
+	.byte 100
+	.byte 32
+	.byte 114
+	.byte 101
+	.byte 112
+	.byte 111
+	.byte 114
+	.byte 116
+	.byte 105
+	.byte 110
+	.byte 103
+	.byte 32
+	.byte 102
+	.byte 111
+	.byte 114
+	.byte 32
+	.byte 100
+	.byte 117
+	.byte 116
+	.byte 121
+	.byte 32
+	.byte 0
+local.src_main.c2.anonymous454:
+	.byte 72
+	.byte 101
+	.byte 108
+	.byte 108
+	.byte 111
+	.byte 32
+	.byte 32
+	.byte 119
+	.byte 111
+	.byte 114
+	.byte 108
+	.byte 100
+	.byte 0
+local.src_main.c2.anonymous471:
+	.byte 101
+	.byte 120
+	.byte 99
+	.byte 101
+	.byte 112
+	.byte 116
+	.byte 105
+	.byte 111
+	.byte 110
+	.byte 32
+	.byte 117
+	.byte 54
+	.byte 52
+	.byte 58
+	.byte 32
+	.byte 0
+local.src_main.c2.anonymous478:
+	.byte 101
+	.byte 120
+	.byte 99
+	.byte 101
+	.byte 112
+	.byte 116
+	.byte 105
+	.byte 111
+	.byte 110
+	.byte 32
+	.byte 117
+	.byte 51
+	.byte 50
+	.byte 58
+	.byte 32
+	.byte 0
+local.src_main.c2.anonymous485:
+	.byte 101
+	.byte 110
+	.byte 100
+	.byte 10
+	.byte 0
+.section .rodata
+.bss
+.text
+.global charP8_its_u64
+charP8_its_u64:
+	enter 16, 0
+	mov [rsp+0], rdi
+	mov [rsp+8], rsi
+	call charP8_UTHS_u64
+	mov rdi, [rsp+0]
+	mov rsi, [rsp+8]
+	mov rsi, rax
+	mov rax, rsi
+	jmp charP8_its_u64.epilogue
+charP8_its_u64.epilogue:
+	leave
+	ret
+
+.global charP8_its_u32
+charP8_its_u32:
+	enter 16, 0
+	mov [rsp+0], rdi
+	mov [rsp+8], rsi
+	call charP8_UTHS_u64
+	mov rdi, [rsp+0]
+	mov rsi, [rsp+8]
+	mov rsi, rax
+	mov rax, rsi
+	jmp charP8_its_u32.epilogue
+charP8_its_u32.epilogue:
+	leave
+	ret
+
+.global charP8_its_u16
+charP8_its_u16:
+	enter 16, 0
+	mov [rsp+0], rdi
+	mov [rsp+8], rsi
+	call charP8_UTHS_u64
+	mov rdi, [rsp+0]
+	mov rsi, [rsp+8]
+	mov rsi, rax
+	mov rax, rsi
+	jmp charP8_its_u16.epilogue
+charP8_its_u16.epilogue:
+	leave
+	ret
+
+.global charP8_its_u8
+charP8_its_u8:
+	enter 16, 0
+	mov [rsp+0], rdi
+	mov [rsp+8], rsi
+	call charP8_UTHS_u64
+	mov rdi, [rsp+0]
+	mov rsi, [rsp+8]
+	mov rsi, rax
+	mov rax, rsi
+	jmp charP8_its_u8.epilogue
+charP8_its_u8.epilogue:
+	leave
+	ret
+
+.global testFunc_c2
+testFunc_c2:
+	mov rax, 4096
+	jmp testFunc_c2.epilogue
+testFunc_c2.epilogue:
+	ret
+
+.global void_extest
+void_extest:
+	mov rax, [____cpe2.exceptions.handler_.u64+0]
+	add rax, r15
+	mov rax, [rax+8]
+	movq [rcx+0], 1280
+	mov rsp, rax
+	mov rax, [rax+0]
+	jmp rax
+void_extest.epilogue:
+	ret
+
+	.global local.src_main.c2.anonymous441
+local.src_main.c2.anonymous441:
+	enter 48, 0
+	mov [rsp+24], r13
+	mov [rsp+32], r14
+	mov rdi, [rbp+16]
+	add rdi, [rbp+24]
+	mov r13, rdi
+	mov [rsp+16], rdi
+	mov rdi, r13
+	call charP8_its_u64
+	mov rdi, [rsp+16]
+	mov [rsp+16], rdi
+	lea rdi, local.src_main.c2.anonymous446
+	mov rsi, rax
+	call charP8_operatorADD_charP8_charP8
+	mov rdi, [rsp+16]
+	mov r14, rax
+	mov [rsp+16], rdi
+	mov rdi, [__fd_out+0]
+	mov rsi, r14
+	call __fd_operatorLESSERLESSER___fd_charP8
+	mov rdi, [rsp+16]
+	mov [rsp+16], rdi
+	mov rdi, rax
+	mov sil, 10
+	call __fd_operatorLESSERLESSER___fd_char
+	mov rdi, [rsp+16]
+local.src_main.c2.anonymous441.epilogue:
+	mov rax, 60
+	xor rdi, rdi
+	syscall
+
+.global cpe2main
+cpe2main:
+	enter 128, 0
+	mov [rsp+100], rbx
+	mov [rsp+108], r13
+	mov [rsp+116], r14
+	movq [rsp+0], 1280
+	movd [rsp+8], 2
+	movq [rsp+12], 18
+	movq [rsp+20], 24
+	movb [rsp+28], 142
+	mov r13, 2048
+	mov r14, 176
+	xor rdi, rdi
+	mov rsi, 4096
+	mov rdx, 3
+	mov r10, 290
+	xor r8, r8
+	xor r9, r9
+	mov rax, 9
+	syscall
+	sub rax, [__cpe2_exceptionFrameSize]
+	mov [rax+0], r13
+	mov [rax+8], r14
+	mov rdi, 151
+	mov rsi, rax
+	mov rax, 56
+	syscall
+	cmp rax,0
+	jne local.src_main.c2.anonymous443
+	mov r15, rsp
+	mov rbp, rsp
+	add r15, [__cpe2_exceptionFrameSize]
+	call local.src_main.c2.anonymous441
+local.src_main.c2.anonymous443:
+	cpe2main.try_catch0.prologue:
+		mov [rsp+0], r13
+		mov [rsp+8], r14
+		# 
+		# add handler
+		# 
+		mov rax, [____cpe2.exceptions.handler_.u64+0]
+		add rax, r15
+		movaps xmm0, [rax+0]
+		movaps [rsp+0], xmm0
+		lea rcx, cpe2main.try_catch0.catch.u64
+		mov [rax+0], rcx
+		lea rcx, [rsp+16]
+		mov [rax+8], rcx
+		# 
+		# add handler
+		# 
+		mov rax, [____cpe2.exceptions.handler_.u32+0]
+		add rax, r15
+		movaps xmm0, [rax+0]
+		movaps [rsp+32], xmm0
+		lea rcx, cpe2main.try_catch0.catch.u32
+		mov [rax+0], rcx
+		lea rcx, [rsp+48]
+		mov [rax+8], rcx
+		cpe2main.try_catch0.try0:
+			# TI is stored in rdi
+			mov rdi, 768
+			# HW is stored in rsi
+			mov r8, 512
+			add r8, 1024
+			mov r9, rdi
+			add r9, r8
+			mov [rsp+16], rdi
+			mov [rsp+24], rsi
+			mov [rsp+32], r8
+			mov [rsp+40], r9
+			call testFunc_c2
+			mov rdi, [rsp+16]
+			mov rsi, [rsp+24]
+			mov r8, [rsp+32]
+			mov r9, [rsp+40]
+			mov r10, r9
+			add r10, rax
+			mov [rsp+16], rdi
+			mov [rsp+24], rsi
+			mov [rsp+32], r8
+			mov [rsp+40], r9
+			mov [rsp+48], r10
+			mov rdi, r10
+			call charP8_its_u64
+			mov rdi, [rsp+16]
+			mov rsi, [rsp+24]
+			mov r8, [rsp+32]
+			mov r9, [rsp+40]
+			mov r10, [rsp+48]
+			mov [rsp+16], rdi
+			mov [rsp+24], rsi
+			mov [rsp+32], r8
+			mov [rsp+40], r9
+			mov [rsp+48], r10
+			lea rdi, local.src_main.c2.anonymous454
+			mov rsi, rax
+			call charP8_operatorADD_charP8_charP8
+			mov rdi, [rsp+16]
+			mov rsi, [rsp+24]
+			mov r8, [rsp+32]
+			mov r9, [rsp+40]
+			mov r10, [rsp+48]
+			mov rsi, rax
+			mov [rsp+16], rdi
+			mov [rsp+24], rsi
+			mov [rsp+32], r8
+			mov [rsp+40], r9
+			mov [rsp+48], r10
+			mov rdi, [__fd_out+0]
+			call __fd_operatorLESSERLESSER___fd_charP8
+			mov rdi, [rsp+16]
+			mov rsi, [rsp+24]
+			mov r8, [rsp+32]
+			mov r9, [rsp+40]
+			mov r10, [rsp+48]
+			mov [rsp+16], rdi
+			mov [rsp+24], rsi
+			mov [rsp+32], r8
+			mov [rsp+40], r9
+			mov [rsp+48], r10
+			mov rdi, rax
+			mov sil, 10
+			call __fd_operatorLESSERLESSER___fd_char
+			mov rdi, [rsp+16]
+			mov rsi, [rsp+24]
+			mov r8, [rsp+32]
+			mov r9, [rsp+40]
+			mov r10, [rsp+48]
+	cpe2main.try_catch0.epilogue:
+		# 
+		# restore handler
+		# 
+		mov rax, [____cpe2.exceptions.handler_.u64+0]
+		add rax, r15
+		movaps xmm0, [rsp+0]
+		movaps [rax+0], xmm0
+		# 
+		# restore handler
+		# 
+		mov rax, [____cpe2.exceptions.handler_.u32+0]
+		add rax, r15
+		movaps xmm0, [rsp+32]
+		movaps [rax+0], xmm0
+	mov [rsp+52], rdi
+	mov [rsp+60], rsi
+	mov [rsp+68], r8
+	mov [rsp+76], r9
+	mov [rsp+84], r10
+	mov [rsp+92], r11
+	mov rdi, [__fd_out+0]
+	lea rsi, local.src_main.c2.anonymous485
+	call __fd_operatorLESSERLESSER___fd_charP8
+	mov rdi, [rsp+52]
+	mov rsi, [rsp+60]
+	mov r8, [rsp+68]
+	mov r9, [rsp+76]
+	mov r10, [rsp+84]
+	mov r11, [rsp+92]
+cpe2main.epilogue:
+	mov rbx, [rsp+100]
+	mov r13, [rsp+108]
+	mov r14, [rsp+116]
+	leave
+	ret
+cpe2main.try_catch0.catch.u64:
+	mov r13, [rsp+0]
+	mov r14, [rsp+8]
+	sub rsp, 16
+	# HW is stored in r11
+	mov [rsp+16], rdi
+	mov [rsp+24], rsi
+	mov [rsp+32], r8
+	mov [rsp+40], r9
+	mov [rsp+48], r10
+	mov [rsp+56], r11
+	mov rdi, [rsp+16]
+	call charP8_its_u64
+	mov rdi, [rsp+16]
+	mov rsi, [rsp+24]
+	mov r8, [rsp+32]
+	mov r9, [rsp+40]
+	mov r10, [rsp+48]
+	mov r11, [rsp+56]
+	mov [rsp+16], rdi
+	mov [rsp+24], rsi
+	mov [rsp+32], r8
+	mov [rsp+40], r9
+	mov [rsp+48], r10
+	mov [rsp+56], r11
+	lea rdi, local.src_main.c2.anonymous471
+	mov rsi, rax
+	call charP8_operatorADD_charP8_charP8
+	mov rdi, [rsp+16]
+	mov rsi, [rsp+24]
+	mov r8, [rsp+32]
+	mov r9, [rsp+40]
+	mov r10, [rsp+48]
+	mov r11, [rsp+56]
+	mov r11, rax
+	mov [rsp+16], rdi
+	mov [rsp+24], rsi
+	mov [rsp+32], r8
+	mov [rsp+40], r9
+	mov [rsp+48], r10
+	mov [rsp+56], r11
+	mov rdi, [__fd_out+0]
+	mov rsi, r11
+	call __fd_operatorLESSERLESSER___fd_charP8
+	mov rdi, [rsp+16]
+	mov rsi, [rsp+24]
+	mov r8, [rsp+32]
+	mov r9, [rsp+40]
+	mov r10, [rsp+48]
+	mov r11, [rsp+56]
+	mov [rsp+16], rdi
+	mov [rsp+24], rsi
+	mov [rsp+32], r8
+	mov [rsp+40], r9
+	mov [rsp+48], r10
+	mov [rsp+56], r11
+	mov rdi, rax
+	mov sil, 10
+	call __fd_operatorLESSERLESSER___fd_char
+	mov rdi, [rsp+16]
+	mov rsi, [rsp+24]
+	mov r8, [rsp+32]
+	mov r9, [rsp+40]
+	mov r10, [rsp+48]
+	mov r11, [rsp+56]
+	jmp cpe2main.try_catch0.epilogue
+cpe2main.try_catch0.catch.u32:
+	mov r13, [rsp+0]
+	mov r14, [rsp+8]
+	sub rsp, 40
+	# HW is stored in rbx
+	mov [rsp+16], rdi
+	mov [rsp+24], rsi
+	mov [rsp+32], r8
+	mov [rsp+40], r9
+	mov [rsp+48], r10
+	mov [rsp+56], r11
+	mov edi, [rsp+40]
+	call charP8_its_u32
+	mov rdi, [rsp+16]
+	mov rsi, [rsp+24]
+	mov r8, [rsp+32]
+	mov r9, [rsp+40]
+	mov r10, [rsp+48]
+	mov r11, [rsp+56]
+	mov [rsp+16], rdi
+	mov [rsp+24], rsi
+	mov [rsp+32], r8
+	mov [rsp+40], r9
+	mov [rsp+48], r10
+	mov [rsp+56], r11
+	lea rdi, local.src_main.c2.anonymous478
+	mov rsi, rax
+	call charP8_operatorADD_charP8_charP8
+	mov rdi, [rsp+16]
+	mov rsi, [rsp+24]
+	mov r8, [rsp+32]
+	mov r9, [rsp+40]
+	mov r10, [rsp+48]
+	mov r11, [rsp+56]
+	mov rbx, rax
+	mov [rsp+16], rdi
+	mov [rsp+24], rsi
+	mov [rsp+32], r8
+	mov [rsp+40], r9
+	mov [rsp+48], r10
+	mov [rsp+56], r11
+	mov rdi, [__fd_out+0]
+	mov rsi, rbx
+	call __fd_operatorLESSERLESSER___fd_charP8
+	mov rdi, [rsp+16]
+	mov rsi, [rsp+24]
+	mov r8, [rsp+32]
+	mov r9, [rsp+40]
+	mov r10, [rsp+48]
+	mov r11, [rsp+56]
+	mov [rsp+16], rdi
+	mov [rsp+24], rsi
+	mov [rsp+32], r8
+	mov [rsp+40], r9
+	mov [rsp+48], r10
+	mov [rsp+56], r11
+	mov rdi, rax
+	mov sil, 10
+	call __fd_operatorLESSERLESSER___fd_char
+	mov rdi, [rsp+16]
+	mov rsi, [rsp+24]
+	mov r8, [rsp+32]
+	mov r9, [rsp+40]
+	mov r10, [rsp+48]
+	mov r11, [rsp+56]
+	jmp cpe2main.try_catch0.epilogue
+

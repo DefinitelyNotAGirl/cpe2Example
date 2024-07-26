@@ -1,0 +1,143 @@
+/*
+ * Created Date: Thursday September 21st 2023
+ * Author: Lilith
+ * -----
+ * Last Modified: Thursday September 21st 2023 7:40:47 pm
+ * Modified By: Lilith (definitelynotagirl115169@gmail.com)
+ * -----
+ * Copyright (c) 2023-2023 DefinitelyNotAGirl@github
+ * 
+ * Permission is hereby granted, free of charge, to any person
+ * obtaining a copy of this software and associated documentation
+ * files (the "Software"), to deal in the Software without
+ * restriction, including without limitation the rights to use, copy,
+ * modify, merge, publish, distribute, sublicense, and/or sell copies
+ * of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ */
+
+#include <stdint>
+
+export class pageTableEntry :
+    public u64 data;
+    /*functions*/
+    public void present(bool value);
+    public bool present();
+    public void noExecute(bool value);
+    public bool noExecute();
+    public void readwrite(bool value);
+    public bool readwrite();
+    public void supervisoronly(bool value);
+    public bool supervisoronly();
+    public void pageWriteThrough(bool value);
+    public bool pageWriteThrough();
+    public void pageCacheDisable(bool value);
+    public bool pageCacheDisable();
+    public bool accessed();
+    public bool dirty();
+    public void PAT(bool value);
+    public bool PAT();
+    public void global(bool value);
+    public bool global();
+    public void physicalAddress(u64 value);
+    public u64  physicalAddress();
+
+export class pde :
+    public u64 data;
+    /*functions*/
+    public void present(bool value);
+    public bool present();
+    public void noExecute(bool value);
+    public bool noExecute();
+    public void readwrite(bool value);
+    public bool readwrite();
+    public void supervisoronly(bool value);
+    public bool supervisoronly();
+    public void pageWriteThrough(bool value);
+    public bool pageWriteThrough();
+    public void pageCacheDisable(bool value);
+    public bool pageCacheDisable();
+    public bool accessed();
+    public void ptBaseAddress(u64 value);
+    public u64  ptBaseAddress();
+
+export class pdpe :
+    public u64 data;
+    /*functions*/
+    public void present(bool value);
+    public bool present();
+    public void noExecute(bool value);
+    public bool noExecute();
+    public void readwrite(bool value);
+    public bool readwrite();
+    public void supervisoronly(bool value);
+    public bool supervisoronly();
+    public void pageWriteThrough(bool value);
+    public bool pageWriteThrough();
+    public void pageCacheDisable(bool value);
+    public bool pageCacheDisable();
+    public bool accessed();
+    public void pdBaseAddress(u64 value);
+    public u64  pdBaseAddress();
+
+export class pml4e :
+    public u64 data;
+    /*functions*/
+    public void present(bool value);
+    public bool present();
+    public void noExecute(bool value);
+    public bool noExecute();
+    public void readwrite(bool value);
+    public bool readwrite();
+    public void supervisoronly(bool value);
+    public bool supervisoronly();
+    public void pageWriteThrough(bool value);
+    public bool pageWriteThrough();
+    public void pageCacheDisable(bool value);
+    public bool pageCacheDisable();
+    public bool accessed();
+    public void pdpBaseAddress(u64 value);
+    public u64  pdpBaseAddress();
+
+export class pml5e :
+    public u64 data;
+    /*functions*/
+    public void present(bool value);
+    public bool present();
+    public void noExecute(bool value);
+    public bool noExecute();
+    public void readwrite(bool value);
+    public bool readwrite();
+    public void supervisoronly(bool value);
+    public bool supervisoronly();
+    public void pageWriteThrough(bool value);
+    public bool pageWriteThrough();
+    public void pageCacheDisable(bool value);
+    public bool pageCacheDisable();
+    public bool accessed();
+    public void plm4tBaseAddress(u64 value);
+    public u64  plm4tBaseAddress();
+    
+
+export class pageTable :
+    public pageTableEntry[512] entries;
+export class pdt :
+    public pde[512] entries;
+export class pdpt :
+    public pdpe[512] entries;
+export class pml4t :
+    public pml4e[512] entries;
+export class pml5t :
+    public pml5e[512] entries;

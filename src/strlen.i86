@@ -1,0 +1,9 @@
+.intel_syntax noprefix
+
+.global u64_strlen_charP8
+u64_strlen_charP8:
+	xor rax, rax
+	.L1:
+		cmpb [rdi+rax*1], 0
+		jne .L1
+	ret

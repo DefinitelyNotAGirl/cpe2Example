@@ -1,0 +1,3 @@
+make: Entering directory '/home/lilith/git/cpe2Example'
+./../c+=2/cp2	src/main.c2
+make: *** [makefile:40: build/main.o] Interrupt

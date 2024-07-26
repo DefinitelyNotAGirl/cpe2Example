@@ -1,0 +1,105 @@
+<!DOCTYPE html><html><head></head><body style='white-space: pre; text-wrap: nowrap;background: hsl(0,0%,2%);font-family:Jetbrains Mono;color: white;'><div><span>==69945== Memcheck, a memory error detector
+==69945== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==69945== Using Valgrind-3.23.0 and LibVEX; rerun with -h for copyright info
+==69945== Command: ../c+=2/cp2 -Wno-unimplemented -MD -Bbuild -Ddocumentation -Iinc --fno-libc -NOD -S -c -o build/main.o src/main.c2
+==69945== 
+==69945== Conditional jump or move depends on uninitialised value(s)
+==69945==    at 0x25DD7A: parseline(line&, bool&, bool&, std::vector&#60;line, std::allocator&#60;line&#62; &#62;&, unsigned long&) (parser.cxx:4456)
+==69945==    by 0x246313: parse(std::vector&#60;line, std::allocator&#60;line&#62; &#62;) (parser.cxx:1345)
+==69945==    by 0x2479D3: parseline(line&, bool&, bool&, std::vector&#60;line, std::allocator&#60;line&#62; &#62;&, unsigned long&) (parser.cxx:1578)
+==69945==    by 0x246313: parse(std::vector&#60;line, std::allocator&#60;line&#62; &#62;) (parser.cxx:1345)
+==69945==    by 0x1F045B: main (main.cxx:256)
+==69945== 
+==69945== Conditional jump or move depends on uninitialised value(s)
+==69945==    at 0x25DFBC: parseline(line&, bool&, bool&, std::vector&#60;line, std::allocator&#60;line&#62; &#62;&, unsigned long&) (parser.cxx:4458)
+==69945==    by 0x246313: parse(std::vector&#60;line, std::allocator&#60;line&#62; &#62;) (parser.cxx:1345)
+==69945==    by 0x2479D3: parseline(line&, bool&, bool&, std::vector&#60;line, std::allocator&#60;line&#62; &#62;&, unsigned long&) (parser.cxx:1578)
+==69945==    by 0x246313: parse(std::vector&#60;line, std::allocator&#60;line&#62; &#62;) (parser.cxx:1345)
+==69945==    by 0x1F045B: main (main.cxx:256)
+==69945== 
+==69945== Conditional jump or move depends on uninitialised value(s)
+==69945==    at 0x1CCDA1: runtime::amd64::copy(variable*, variable*) (amd64.cgu.cxx:358)
+==69945==    by 0x20AE11: runtime::copy(variable*, variable*) (CGU.cxx:46)
+==69945==    by 0x24403B: call(function*, std::vector&#60;variable*, std::allocator&#60;variable*&#62; &#62;) (parser.cxx:919)
+==69945==    by 0x24FD6A: parseline(line&, bool&, bool&, std::vector&#60;line, std::allocator&#60;line&#62; &#62;&, unsigned long&) (parser.cxx:2267)
+==69945==    by 0x246313: parse(std::vector&#60;line, std::allocator&#60;line&#62; &#62;) (parser.cxx:1345)
+==69945==    by 0x1F0659: main (main.cxx:272)
+==69945== 
+==69945== Conditional jump or move depends on uninitialised value(s)
+==69945==    at 0x25516C: parseline(line&, bool&, bool&, std::vector&#60;line, std::allocator&#60;line&#62; &#62;&, unsigned long&) (parser.cxx:3086)
+==69945==    by 0x246313: parse(std::vector&#60;line, std::allocator&#60;line&#62; &#62;) (parser.cxx:1345)
+==69945==    by 0x1F0659: main (main.cxx:272)
+==69945== 
+empty section: .rodata
+generating header...
+generating null entry...
+generating section .symtab...
+generating section .text...
+generating section .rela.text...
+generating section .data...
+generating section .rodata...
+generating section .strtab...
+opening file: build/main.o
+writing file...
+closing file...
+==69945== Syscall param write(buf) points to uninitialised byte(s)
+==69945==    at 0x4D08504: write (write.c:26)
+==69945==    by 0x4C89CA4: _IO_file_write@@GLIBC_2.2.5 (fileops.c:1181)
+==69945==    by 0x4C87E3C: new_do_write (fileops.c:449)
+==69945==    by 0x4C88CE0: _IO_do_write@@GLIBC_2.2.5 (fileops.c:426)
+==69945==    by 0x4C8850F: _IO_file_close_it@@GLIBC_2.2.5 (fileops.c:135)
+==69945==    by 0x4C7C1D0: fclose@@GLIBC_2.2.5 (iofclose.c:53)
+==69945==    by 0x28EE7F: output::generateElf64() (elf64.out.cxx:407)
+==69945==    by 0x2307DF: genOutput(std::__cxx11::basic_string&#60;char, std::char_traits&#60;char&#62;, std::allocator&#60;char&#62; &#62;&) (outGen.cxx:87)
+==69945==    by 0x1F0677: main (main.cxx:273)
+==69945==  Address 0x55c8b38 is 1,448 bytes inside a block of size 4,096 alloc'd
+==69945==    at 0x4842788: malloc (vg_replace_malloc.c:446)
+==69945==    by 0x4C7BF13: _IO_file_doallocate (filedoalloc.c:101)
+==69945==    by 0x4C8B213: _IO_doallocbuf (genops.c:347)
+==69945==    by 0x4C8B213: _IO_doallocbuf (genops.c:342)
+==69945==    by 0x4C892E7: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:745)
+==69945==    by 0x4C89DE7: _IO_new_file_xsputn (fileops.c:1244)
+==69945==    by 0x4C89DE7: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==69945==    by 0x4C7D5E2: fwrite (iofwrite.c:39)
+==69945==    by 0x28EE45: output::generateElf64() (elf64.out.cxx:405)
+==69945==    by 0x2307DF: genOutput(std::__cxx11::basic_string&#60;char, std::char_traits&#60;char&#62;, std::allocator&#60;char&#62; &#62;&) (outGen.cxx:87)
+==69945==    by 0x1F0677: main (main.cxx:273)
+==69945== 
+done.
+==69945== Invalid free() / delete / delete[] / realloc()
+==69945==    at 0x48458CF: free (vg_replace_malloc.c:989)
+==69945==    by 0x294424: smu::section::~section() (section.smu.cxx:47)
+==69945==    by 0x4C3DFA0: __run_exit_handlers (exit.c:108)
+==69945==    by 0x4C3E06D: exit (exit.c:138)
+==69945==    by 0x4C24C8E: (below main) (libc_start_call_main.h:74)
+==69945==  Address 0x55bbb50 is 0 bytes inside a block of size 336 free'd
+==69945==    at 0x48458CF: free (vg_replace_malloc.c:989)
+==69945==    by 0x294424: smu::section::~section() (section.smu.cxx:47)
+==69945==    by 0x28E687: output::generateElf64() (elf64.out.cxx:297)
+==69945==    by 0x2307DF: genOutput(std::__cxx11::basic_string&#60;char, std::char_traits&#60;char&#62;, std::allocator&#60;char&#62; &#62;&) (outGen.cxx:87)
+==69945==    by 0x1F0677: main (main.cxx:273)
+==69945==  Block was alloc'd at
+==69945==    at 0x4849E20: realloc (vg_replace_malloc.c:1800)
+==69945==    by 0x1E2293: void smu::section::push&#60;elf64::SymbolTableEntry&#62;(elf64::SymbolTableEntry) (SMU.h:195)
+==69945==    by 0x244FD3: endBody(scope*&, token&, line&) (parser.cxx:1079)
+==69945==    by 0x2469F9: parseline(line&, bool&, bool&, std::vector&#60;line, std::allocator&#60;line&#62; &#62;&, unsigned long&) (parser.cxx:1440)
+==69945==    by 0x246313: parse(std::vector&#60;line, std::allocator&#60;line&#62; &#62;) (parser.cxx:1345)
+==69945==    by 0x1F0659: main (main.cxx:272)
+==69945== 
+==69945== 
+==69945== HEAP SUMMARY:
+==69945==     in use at exit: 2,294,192 bytes in 8,478 blocks
+==69945==   total heap usage: 38,101 allocs, 29,624 frees, 5,330,860 bytes allocated
+==69945== 
+==69945== LEAK SUMMARY:
+==69945==    definitely lost: 937,210 bytes in 2,394 blocks
+==69945==    indirectly lost: 29,877 bytes in 335 blocks
+==69945==      possibly lost: 0 bytes in 0 blocks
+==69945==    still reachable: 1,327,105 bytes in 5,749 blocks
+==69945==         suppressed: 0 bytes in 0 blocks
+==69945== Rerun with --leak-check=full to see details of leaked memory
+==69945== 
+==69945== Use --track-origins=yes to see where uninitialised values come from
+==69945== For lists of detected and suppressed errors, rerun with: -s
+==69945== ERROR SUMMARY: 43 errors from 6 contexts (suppressed: 0 from 0)
+</span></div></body></html>

@@ -1,0 +1,220 @@
+#title untitled
+<class>
+    <name>__ACPITABLES__</name>
+</class>
+<class>
+    <name>__bootinfo__</name>
+</class>
+<class>
+    <name>gdt_t</name>
+</class>
+<class>
+    <name>gdtr_t</name>
+</class>
+<function>
+    <name>calloc</name>
+    <attributes>    </attributes>
+    <type><name>void*</name></type>
+    <param>
+        <name>itemCount</name>
+        <type><name>u64</name></type>
+    </param>
+    <param>
+        <name>size</name>
+        <type><name>u64</name></type>
+    </param>
+</function>
+<function>
+    <name>zalloc</name>
+    <attributes>    </attributes>
+    <type><name>void*</name></type>
+    <param>
+        <name>size</name>
+        <type><name>u64</name></type>
+    </param>
+</function>
+<function>
+    <name>malloc</name>
+    <attributes>    </attributes>
+    <type><name>void*</name></type>
+    <param>
+        <name>size</name>
+        <type><name>u64</name></type>
+    </param>
+</function>
+<function>
+    <name>free</name>
+    <attributes>    </attributes>
+    <type><name>void</name></type>
+    <param>
+        <name>ptr</name>
+        <type><name>void*</name></type>
+    </param>
+</function>
+<function>
+    <name>realloc</name>
+    <attributes>    </attributes>
+    <type><name>void*</name></type>
+    <param>
+        <name>ptr</name>
+        <type><name>void*</name></type>
+    </param>
+    <param>
+        <name>newSize</name>
+        <type><name>u64</name></type>
+    </param>
+</function>
+<function>
+    <name>memcpy</name>
+    <attributes>    </attributes>
+    <type><name>void</name></type>
+    <param>
+        <name>dst</name>
+        <type><name>void*</name></type>
+    </param>
+    <param>
+        <name>src</name>
+        <type><name>void*</name></type>
+    </param>
+    <param>
+        <name>size</name>
+        <type><name>u64</name></type>
+    </param>
+</function>
+<function>
+    <name>startsWith</name>
+    <attributes>    </attributes>
+    <type><name>bool</name></type>
+    <param>
+        <name>str</name>
+        <type><name>string&</name></type>
+    </param>
+</function>
+<function>
+    <name>endsWith</name>
+    <attributes>    </attributes>
+    <type><name>bool</name></type>
+    <param>
+        <name>str</name>
+        <type><name>string&</name></type>
+    </param>
+</function>
+<function>
+    <name>contains</name>
+    <attributes>    </attributes>
+    <type><name>bool</name></type>
+    <param>
+        <name>str</name>
+        <type><name>string&</name></type>
+    </param>
+</function>
+<function>
+    <name>exit</name>
+    <attributes>    </attributes>
+    <type><name>void</name></type>
+    <param>
+        <name>exitCode</name>
+        <type><name>u64</name></type>
+    </param>
+</function>
+<function>
+    <name>print</name>
+    <attributes>    </attributes>
+    <type><name>void</name></type>
+    <param>
+        <name>str</name>
+        <type><name>char*</name></type>
+    </param>
+</function>
+<function>
+    <name>someNumber</name>
+    <attributes>    </attributes>
+    <type><name>u64</name></type>
+    <param>
+        <name>n</name>
+        <type><name>u64</name></type>
+    </param>
+</function>
+<function>
+    <name>main</name>
+    <attributes>    </attributes>
+    <type><name>void</name></type>
+    <param>
+        <name>test</name>
+        <type><name>u64</name></type>
+    </param>
+    <param>
+        <name>arg</name>
+        <type><name>u64</name></type>
+    </param>
+</function>
+<function>
+    <name>EFIentry</name>
+    <attributes>    </attributes>
+    <type><name>void</name></type>
+    <param>
+        <name>a</name>
+        <type><name>u64</name></type>
+    </param>
+    <param>
+        <name>b</name>
+        <type><name>u64</name></type>
+    </param>
+</function>
+<function>
+    <name>largeFunc</name>
+    <attributes>    </attributes>
+    <type><name>u64</name></type>
+    <param>
+        <name>a</name>
+        <type><name>u64</name></type>
+    </param>
+    <param>
+        <name>b</name>
+        <type><name>u64</name></type>
+    </param>
+    <param>
+        <name>c</name>
+        <type><name>u64</name></type>
+    </param>
+    <param>
+        <name>d</name>
+        <type><name>u256</name></type>
+    </param>
+</function>
+<member>
+    <name>mmap_size</name>
+    <type><name>u64</name></type>
+</member>
+<member>
+    <name>mmap_esize</name>
+    <type><name>u8</name></type>
+</member>
+<member>
+    <name>stack_base</name>
+    <type><name>u64</name></type>
+</member>
+<member>
+    <name>stack_size</name>
+    <type><name>u64</name></type>
+</member>
+<member>
+    <name>VirtualMemoryMAX</name>
+    <type><name>u64</name></type>
+</member>
+<member>
+    <name>funcGet</name>
+    <type><name>u64</name></type>
+</member>
+<member>
+    <name>ACPI_REVISION</name>
+    <type><name>u8</name></type>
+</member>
+<member>
+    <name>primePageTable</name>
+    <type><name>u64</name></type>
+</member>
+<member>
+    <name>strtest</name>
+    <type><name>char*</name></type>
+</member>

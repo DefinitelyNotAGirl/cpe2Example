@@ -1,0 +1,96 @@
+/*
+ * Created Date: Sunday December 24th 2023
+ * Author: Lilith
+ * -----
+ * Last Modified: Sunday December 24th 2023 10:40:45 pm
+ * Modified By: Lilith (definitelynotagirl115169@gmail.com)
+ * -----
+ * Copyright (c) 2023-2023 DefinitelyNotAGirl@github
+ * 
+ * Permission is hereby granted, free of charge, to any person
+ * obtaining a copy of this software and associated documentation
+ * files (the "Software"), to deal in the Software without
+ * restriction, including without limitation the rights to use, copy,
+ * modify, merge, publish, distribute, sublicense, and/or sell copies
+ * of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ */
+
+.extern cpe2malloc
+.extern u64_strlen_charP8
+
+memcpy:
+    //rdi: src
+    //rsi: dst
+    //rdx: len
+    L0:
+    cmp $0, %rdx
+    je L2
+    L1:
+        mov (%rdi), %al
+        mov %al, (%rsi)
+        inc %rdi
+        inc %rsi
+        dec %rdx
+        jmp L0
+    L2:
+    ret
+
+.global charP8_operatorADD_charP8_charP8
+charP8_operatorADD_charP8_charP8:
+    sub $32, %rsp
+    mov %r12, 0(%rsp)
+    mov %r13, 8(%rsp)
+    mov %r14,16(%rsp)
+    mov %r15,24(%rsp)
+    //rdi: char* a
+    //rsi: char* b
+    mov %rdi, %r12
+    mov %rsi, %r13
+    //get string lengths
+    call u64_strlen_charP8
+    mov %rax, %r14 # r14 now aLen
+    mov %r13, %rdi
+    call u64_strlen_charP8
+    mov %rax, %r15 # r15 now bLen
+    //get new buffer
+    mov %r14, %rdi
+    add %r15, %rdi
+    inc %rdi # buffer size aLen+bLen+1
+    call cpe2malloc
+    //copy data to buffer
+    mov %r12, %rdi # pass char* a to memcpy
+    mov %rax, %rsi # pass dst to memcpy
+    mov %rax, %r12 # r12 now new buffer address
+    mov %r14, %rdx # pass aLen to memcpy
+    call memcpy
+    mov %r13, %rdi # pass char* b to memcpy
+    mov %r12, %rsi # pass dst to memcpy
+    add %r14, %rsi # dst+=aLen
+    mov %r15, %rdx # pass bLen to memcpy
+    call memcpy
+    //terminate new string
+    mov %r12, %rsi # dst
+    add %r14, %rsi # dst+=aLen
+    add %r15, %rsi # dst+=bLen
+    movb $0, (%rsi)
+    //return
+    mov %r12, %rax
+    mov  0(%rsp), %r12
+    mov  8(%rsp), %r13
+    mov 16(%rsp), %r14
+    mov 24(%rsp), %r15
+    add $32, %rsp
+    ret

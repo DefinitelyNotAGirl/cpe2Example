@@ -1,0 +1,3 @@
+c2resource exception u64;
+c2resource exception u32;
+

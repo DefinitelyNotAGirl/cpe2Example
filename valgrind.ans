@@ -1,0 +1,43 @@
+==130227== Memcheck, a memory error detector
+==130227== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==130227== Using Valgrind-3.23.0 and LibVEX; rerun with -h for copyright info
+==130227== Command: ../c+=2/cp2 -Wno-unimplemented -MD -Bbuild -Ddocumentation -Iinc --fno-libc -NOD -S -c -o build/main.o src/main.c2
+==130227== 
+==130227== Invalid read of size 8
+==130227==    at 0x294308: smu::section::size() (section.smu.cxx:128)
+==130227==    by 0x2940AC: smu::section::placeSymbol(cgu::SymbolType, unsigned long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (section.smu.cxx:99)
+==130227==    by 0x25C0A0: parseline(line&, bool&, bool&, std::vector<line, std::allocator<line> >&, unsigned long&) (parser.cxx:4175)
+==130227==    by 0x2450E7: parse(std::vector<line, std::allocator<line> >) (parser.cxx:1277)
+==130227==    by 0x2467A7: parseline(line&, bool&, bool&, std::vector<line, std::allocator<line> >&, unsigned long&) (parser.cxx:1510)
+==130227==    by 0x2450E7: parse(std::vector<line, std::allocator<line> >) (parser.cxx:1277)
+==130227==    by 0x1EED5F: main (main.cxx:256)
+==130227==  Address 0x40 is not stack'd, malloc'd or (recently) free'd
+==130227== 
+[41m
+                              memory access violation
+signal: 11
+stack trace: 
+./src/crash.cxx:9 in MemoryAccessViolation
+./src/section.smu.cxx:128 in smu::section::size()
+./src/section.smu.cxx:99 in smu::section::placeSymbol(cgu::SymbolType, unsigned long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+./src/parser.cxx:4175 in parseline(line&, bool&, bool&, std::vector<line, std::allocator<line> >&, unsigned long&)
+./src/parser.cxx:1275 in parse(std::vector<line, std::allocator<line> >)
+./src/parser.cxx:1510 in parseline(line&, bool&, bool&, std::vector<line, std::allocator<line> >&, unsigned long&)
+./src/parser.cxx:1275 in parse(std::vector<line, std::allocator<line> >)
+./src/main.cxx:256 in main
+[0m
+==130227== 
+==130227== HEAP SUMMARY:
+==130227==     in use at exit: 1,664,489 bytes in 6,241 blocks
+==130227==   total heap usage: 24,835 allocs, 18,594 frees, 3,456,517 bytes allocated
+==130227== 
+==130227== LEAK SUMMARY:
+==130227==    definitely lost: 530,078 bytes in 1,324 blocks
+==130227==    indirectly lost: 771 bytes in 29 blocks
+==130227==      possibly lost: 0 bytes in 0 blocks
+==130227==    still reachable: 1,133,640 bytes in 4,888 blocks
+==130227==         suppressed: 0 bytes in 0 blocks
+==130227== Rerun with --leak-check=full to see details of leaked memory
+==130227== 
+==130227== For lists of detected and suppressed errors, rerun with: -s
+==130227== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
